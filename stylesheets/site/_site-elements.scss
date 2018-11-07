@@ -1,0 +1,47 @@
+
+html, body {
+	background: $x-body-background;
+}
+
+a {
+	color: $x-accent-color;
+	text-decoration: none;
+	&:hover {
+		color: $x-accent-color-alt;
+		text-decoration: underline;
+	}
+}
+
+body {
+	
+	padding: 0 $side-padding;
+	margin: 0 auto;
+	width: 100%;
+
+	@include media( tablet ) {
+		max-width: $mobile-width;
+	}
+	
+	@include media( desktop ) {
+		max-width: $tablet-width;
+	}
+	
+	@include media( wide ) {
+		max-width: $desktop-width;
+	}
+
+}
+
+#page {
+	border: solid 1px $x-border-color;
+	padding: 1em;
+	margin: 2em 0;
+}
+
+.site-header h1 {
+	margin: 0;
+}
+
+p {
+	margin: 0.8em 0;
+}

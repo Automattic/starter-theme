@@ -1,0 +1,17 @@
+/*!
+Theme Name: Starter Theme
+Author: Automattic
+Description: Starting point for theme development.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: starter-theme
+*/
+
+@import "bourbon";
+
+@import "stylesheets/index";
+
+:root {}
+
+@import "stylesheets/site";

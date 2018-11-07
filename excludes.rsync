@@ -1,0 +1,17 @@
+/node_modules/
+/stylesheets/
+/tools/
+/build/
+/docs/
+
+.gitignore
+
+Gruntfile.js
+Makefile
+
+*.rsync
+*.scss
+*.json
+*.md
+*.sh
+.*

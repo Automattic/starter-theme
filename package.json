@@ -1,0 +1,52 @@
+{
+  "name": "starter-theme",
+  "title": "Starter Theme",
+  "description": "Theme development boilerplate.",
+  "version": "1.0.0",
+  "license": "GPL-2.0+",
+  "private": "true",
+  "scripts": {
+    "clean": "rm -Rf *-vars.scss *-vars.css build && mkdir -p build",
+    "grunt:dev": "grunt build watch",
+    "grunt:build": "grunt build",
+    "vars:style": "node tools/sass-variables.js --prefix=x style.scss --ignore=bourbon --output style-css-vars.scss",
+    "vars:editor": "node tools/sass-variables.js --prefix=x editor.scss --root-selector=body --ignore=bourbon --output editor-css-vars.scss",
+    "build:rtl": "rtlcss style.css style-rtl.css",
+    "build:all": "npm run -s clean && npm run -s grunt:build && npm run -s vars:style && npm run -s vars:editor && npm run -s grunt:build && npm run -s build:rtl && npm run -s clean",
+    "build:theme": "npm run -s build:all && rsync -a . build/ --exclude-from=excludes.rsync && node tools/buildtool.js --check --path build/; mv build $npm_package_name; mkdir build; zip -mqr build/$npm_package_name.zip $npm_package_name; cd build/; unzip -qq $npm_package_name.zip; npm run -s finished",
+    "finished": "echo '\n• Finished building' $npm_package_name '\n'"
+  },
+  "devDependencies": {
+    "colors": "~1.3.2",
+    "file": "~0.2.2",
+    "grunt": "^1.0.3",
+    "grunt-cli": "^1.3.2",
+    "grunt-contrib-copy": "~0.8.0",
+    "grunt-contrib-less": "^2.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-sass": "~1.0.0",
+    "minimist": "~1.2.0",
+    "node-bourbon": "~4.2.3",
+    "node-sass": "~4.5.0",
+    "rtlcss": "^2.4.0",
+    "susy": "~2.2.5",
+    "underscore": "~1.9.1"
+  },
+  "engines": {
+    "node": ">=0.8.0",
+    "npm": ">=1.1.0"
+  },
+  "rtlcssConfig": {
+    "options": {
+      "autoRename": false,
+      "autoRenameStrict": false,
+      "blacklist": {},
+      "clean": true,
+      "greedy": false,
+      "processUrls": false,
+      "stringMap": []
+    },
+    "plugins": [],
+    "map": false
+  }
+}

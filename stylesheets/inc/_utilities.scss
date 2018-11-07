@@ -1,0 +1,42 @@
+
+@mixin media( $res ) {
+	@if tablet == $res {
+		@media only screen and (min-width: $tablet-width) {
+			@content;
+		}
+	}
+	@if desktop == $res {
+		@media only screen and (min-width: $desktop-width) {
+			@content;
+		}
+	}
+	
+	@if wide == $res {
+		@media only screen and (min-width: $wide-width) {
+			@content;
+		}
+	}
+}
+
+@mixin font-smoothing() {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@mixin font-size( $size, $unit: em ) {
+	@if ( em == $unit ) {
+		font-size: ( $size / $base-size ) * 1em;
+	}
+	@if ( rem == $unit ) {
+		font-size: ( $size / 16px ) * 1rem;
+	}
+}
+
+@mixin selection {
+	::-moz-selection {
+		@content;
+	}
+	::selection {
+		@content;
+	}
+}
