@@ -33,4 +33,4 @@ body {
  }
 ```
 
-If CSS variable overrides are added, it will not add a fallback and the results may vary from the development version (`grunt:dev`) and the final build `build:all`.
+If CSS variable overrides are added, it will not add a fallback and the results may vary from the development version (`grunt:dev`) and the final build (`build:all`).
